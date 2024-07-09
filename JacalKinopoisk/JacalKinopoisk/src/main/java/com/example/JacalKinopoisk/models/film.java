@@ -27,13 +27,13 @@ public class film {
     @Column(name = "year")
     private Integer year;
 
-    @Column(name = "description", columnDefinition = "text")
+    @Column(name = "description", length = 5000)
     private String description;
 
-    @Column(name = "short_description", columnDefinition = "text")
+    @Column(name = "short_description", length = 5000)
     private String short_description;
 
-    @Column(name = "slogan", columnDefinition = "text")
+    @Column(name = "slogan", length = 5000)
     private String slogan;
 
     @Column(name = "movie_length")
@@ -51,7 +51,7 @@ public class film {
     @Column(name = "rating_film_critics")
     private Float ratingFilmCritics;
 
-    @Column(name = "poster_url", columnDefinition = "text")
+    @Column(name = "poster_url", length = 5000)
     private String posterUrl;
 
     @ElementCollection

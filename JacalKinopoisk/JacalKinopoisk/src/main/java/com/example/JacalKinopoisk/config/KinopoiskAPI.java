@@ -12,27 +12,27 @@ import java.util.Optional;
 @FeignClient(name = "KinopoiskAPI", url = "https://api.kinopoisk.dev", configuration = FeignConfig.class)
 public interface KinopoiskAPI {
 
-    @GetMapping("/v1.4/film/{id}")
+    @GetMapping("/v1.4/movie/{id}")
     Optional<film> findById(@PathVariable("id") Long id);
 
-    @GetMapping("/v1.4/film/search")
+    @GetMapping("/v1.4/movie/search")
     filmAPI findByPageByName(
             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-            @RequestParam(value = "limit", required = false, defaultValue = "1") int limit,
+            @RequestParam(value = "limit", required = false, defaultValue = "10") int limit,
             @RequestParam(value = "query") String name
     );
 
-    @GetMapping("/v1.4/film/")
+    @GetMapping("/v1.4/movie")
     filmAPI findByPageByRatingKp(
             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-            @RequestParam(value = "limit", required = false, defaultValue = "1") int limit,
+            @RequestParam(value = "limit", required = false, defaultValue = "10") int limit,
             @RequestParam(value = "rating.kp") String rating
     );
 
-    @GetMapping("/v1.4/film/")
+    @GetMapping("/v1.4/movie")
     filmAPI findByPageByGenres(
             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-            @RequestParam(value = "limit", required = false, defaultValue = "1") int limit,
+            @RequestParam(value = "limit", required = false, defaultValue = "10") int limit,
             @RequestParam(value = "genres.name") String genre
     );
 }
